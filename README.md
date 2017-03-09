@@ -12,19 +12,23 @@ Post-install setup
 
 In the controller:
 
-1. `vagrant ssh controller`
-2. `sudo /usr/sbin/create-munge-key`
-3. `sudo scp /etc/munge/munge.key vagrant@server:/home/vagrant/`
-4. `sudo /etc/init.d/munge start`
-5. `sudo slurmctld -D &`
+```
+vagrant ssh controller
+sudo /usr/sbin/create-munge-key
+sudo scp /etc/munge/munge.key vagrant@server:/home/vagrant/
+sudo /etc/init.d/munge start
+sudo slurmctld -D &
+```
 
 In the server:
 
-1. `vagrant ssh server`
-2. `sudo cp ~/munge.key /etc/munge`
-3. `sudo chown munge /etc/munge/munge.key`
-4. `sudo /etc/init.d/munge start`
-5. `sudo /etc/init.d/slurm-llnl start`
+```
+vagrant ssh server
+sudo cp ~/munge.key /etc/munge
+sudo chown munge /etc/munge/munge.key
+sudo /etc/init.d/munge start
+sudo /etc/init.d/slurm-llnl start
+```
 
 To test:
 
