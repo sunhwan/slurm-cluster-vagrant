@@ -12,34 +12,34 @@ Post-install setup
 
 2. In the controller:
 
-```
-vagrant ssh controller
-sudo /usr/sbin/create-munge-key
-sudo scp /etc/munge/munge.key vagrant@server:/home/vagrant/
-sudo /etc/init.d/munge start
-sudo slurmctld -D &
-```
+   ```
+   vagrant ssh controller
+   sudo /usr/sbin/create-munge-key
+   sudo scp /etc/munge/munge.key vagrant@server:/home/vagrant/
+   sudo /etc/init.d/munge start
+   sudo slurmctld -D &
+   ```
 
 3. In the server:
 
-```
-vagrant ssh server
-sudo cp ~/munge.key /etc/munge
-sudo chown munge /etc/munge/munge.key
-sudo /etc/init.d/munge start
-sudo /etc/init.d/slurm-llnl start
-```
+   ```
+   vagrant ssh server
+   sudo cp ~/munge.key /etc/munge
+   sudo chown munge /etc/munge/munge.key
+   sudo /etc/init.d/munge start
+   sudo /etc/init.d/slurm-llnl start
+   ```
 
 4. To test:
 
-```shell
-#!/bin/bash
-#SBATCH -p debug
-#SBATCH -n 1
-#SBATCH -t 12:00:00
-#SBATCH -J some_job_name
- 
-ls / > /home/vagrant/slurm.out
-```
-
-`sbatch test.sh`
+   ```shell
+   #!/bin/bash
+   #SBATCH -p debug
+   #SBATCH -n 1
+   #SBATCH -t 12:00:00
+   #SBATCH -J some_job_name
+    
+   ls / > /home/vagrant/slurm.out
+   ```
+   
+   `sbatch test.sh`
