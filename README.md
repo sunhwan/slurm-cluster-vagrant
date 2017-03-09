@@ -10,7 +10,7 @@ Post-install setup
 
 1. `vagrant up`
 
-In the controller:
+2. In the controller:
 
 ```
 vagrant ssh controller
@@ -20,7 +20,7 @@ sudo /etc/init.d/munge start
 sudo slurmctld -D &
 ```
 
-In the server:
+3. In the server:
 
 ```
 vagrant ssh server
@@ -30,7 +30,7 @@ sudo /etc/init.d/munge start
 sudo /etc/init.d/slurm-llnl start
 ```
 
-To test:
+4. To test:
 
 ```shell
 #!/bin/bash
